@@ -1,4 +1,4 @@
-﻿/*********************************************** 
+/*********************************************** 
  * Stroop Pl 2 Warunki Podstawowy Builder *
  ***********************************************/
 
@@ -14,7 +14,7 @@ const { round } = util;
 // store info about the experiment session:
 let expName = 'stroop pl 2 warunki podstawowy builder';  // from the Builder filename that created this script
 let expInfo = {
-    'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
+    'participant': ${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)},
     'session': '001',
 };
 
@@ -76,9 +76,6 @@ psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
 var currentLoop;
 var frameDur;
-var kolor;
-var target;
-var poprawna_odp;
 async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
@@ -99,7 +96,7 @@ async function updateInfo() {
   
 
   
-  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expName}_${expInfo["date"]}`);
+  psychoJS.experiment.dataFileName = (("." + "/") + data/${expInfo["participant"]}_${expName}_${expInfo["date"]});
   psychoJS.experiment.field_separator = '\t';
 
 
@@ -659,16 +656,9 @@ function koniecRoutineEnd(snapshot) {
 
 function importConditions(currentLoop) {
   return async function () {
-    // Zaimportuj dane z bieżącego triala
     psychoJS.importAttributes(currentLoop.getCurrentTrial());
-
-    // Przypisz wartości do zmiennych globalnych
-    kolor = currentLoop.getCurrentTrial()["kolor"];
-    target = currentLoop.getCurrentTrial()["target"];
-    poprawna_odp = currentLoop.getCurrentTrial()["poprawna_odp"];
-
     return Scheduler.Event.NEXT;
-  };
+    };
 }
 
 
