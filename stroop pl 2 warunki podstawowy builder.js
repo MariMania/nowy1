@@ -97,7 +97,6 @@ async function updateInfo() {
 
   
   psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expName}_${expInfo["date"]}`);
-  psychoJS.experiment.field_separator = '\t';
 
 
   return Scheduler.Event.NEXT;
