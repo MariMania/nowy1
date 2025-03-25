@@ -76,6 +76,9 @@ psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
 var currentLoop;
 var frameDur;
+var kolor;
+var target;
+var poprawna_odp;
 async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
@@ -656,9 +659,16 @@ function koniecRoutineEnd(snapshot) {
 
 function importConditions(currentLoop) {
   return async function () {
+    // Zaimportuj dane z bieżącego triala
     psychoJS.importAttributes(currentLoop.getCurrentTrial());
+
+    // Przypisz wartości do zmiennych globalnych
+    kolor = currentLoop.getCurrentTrial()["kolor"];
+    target = currentLoop.getCurrentTrial()["target"];
+    poprawna_odp = currentLoop.getCurrentTrial()["poprawna_odp"];
+
     return Scheduler.Event.NEXT;
-    };
+  };
 }
 
 
