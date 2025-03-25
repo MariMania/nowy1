@@ -669,7 +669,10 @@ async function quitPsychoJS(message, isCompleted) {
   }
 
   // Poprawne ręczne wymuszenie zapisu danych CSV (działa w nowej wersji PsychoPy/PsychoJS)
-  psychoJS.experiment.save({format: 'csv'});
+  psychoJS.experiment.save({
+  format: 'csv',
+  delimiter: ','
+});
 
   psychoJS.window.close();
   psychoJS.quit({message: message, isCompleted: isCompleted});
