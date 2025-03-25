@@ -14,7 +14,7 @@ const { round } = util;
 // store info about the experiment session:
 let expName = 'stroop pl 2 warunki podstawowy builder';  // from the Builder filename that created this script
 let expInfo = {
-    'participant': ${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)},
+    'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
     'session': '001',
 };
 
@@ -66,7 +66,7 @@ dialogCancelScheduler.add(quitPsychoJS, 'Thank you for your patience.', false);
 psychoJS.start({
   expName: expName,
   expInfo: expInfo,
-resources: [
+   resources: [
     {'name': 'dane_stroop_2_warunki.xlsx', 'path': 'dane_stroop_2_warunki.xlsx'}
   ]
   });
@@ -96,7 +96,7 @@ async function updateInfo() {
   
 
   
-  psychoJS.experiment.dataFileName = (("." + "/") + data/${expInfo["participant"]}_${expName}_${expInfo["date"]});
+  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expName}_${expInfo["date"]}`);
   psychoJS.experiment.field_separator = '\t';
 
 
