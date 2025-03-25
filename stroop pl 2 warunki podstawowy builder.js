@@ -667,6 +667,15 @@ async function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  // ręczne wymuszenie zapisu danych w formacie CSV
+  psychoJS.experiment.save({
+    attributes: psychoJS.experiment.getAttributes(),
+    format: 'csv',
+    delimiter: ',',
+    quotes: true
+  });
+  
   psychoJS.window.close();
   psychoJS.quit({message: message, isCompleted: isCompleted});
   
