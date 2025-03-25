@@ -58,6 +58,9 @@ dialogCancelScheduler.add(quitPsychoJS, 'Thank you for your patience.', false);
 psychoJS.start({
   expName: expName,
   expInfo: expInfo,
+ resources: [
+    {'name': 'dane_stroop_2_warunki.xlsx', 'path': 'dane_stroop_2_warunki.xlsx'}
+  ]
   });
   
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
